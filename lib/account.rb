@@ -11,16 +11,16 @@ class Account
   end
 
   def deposit(amount)
-    self.balance += amount
+    increase_balance(amount)
     transaction = Transaction.new(amount, balance)
-    self.transactions << transaction
+    add_to_account(transaction)
   end
 
   def withdraw(amount)
     can_user_withdraw(amount)
-    self.balance -= amount
+    decrease_balance(amount)
     transaction = Transaction.new(-amount, balance)
-    self.transactions << transaction
+    add_to_account(transaction)
   end
 
   private
@@ -28,6 +28,18 @@ class Account
   def can_user_withdraw(amount)
     fail "£#{balance} available in account. Please deposit funds first." if self.balance == 0
     fail "£#{balance} available in account. Please withdraw a lower amount." if self.balance < amount
+  end
+
+  def add_to_account(transaction)
+    self.transactions << transaction
+  end
+
+  def increase_balance(amount)
+    self.balance += amount
+  end
+
+  def decrease_balance(amount)
+    self.balance -= amount
   end
 
 end

@@ -15,6 +15,3 @@ describe Transaction do
   end
 
 end
-
-
-# transaction must be initialized with a negative (withdraw) number or a positive (deposit) number. It should also be initalized with a date. Not sure what to do about balance, maybe it should be deduced from the last transaction's balance, summed to this transaction's amount
