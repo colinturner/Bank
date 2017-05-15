@@ -46,13 +46,4 @@ describe Account do
     end
   end
 
-  # context "statement" do
-  #   it "can be displayed" do
-  #     subject.deposit(5)
-  #     subject.withdraw(2)
-  #     subject.deposit(10)
-  #     expect(subject.statement)
-  #   end
-  # end
-
 end

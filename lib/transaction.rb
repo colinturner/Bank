@@ -4,7 +4,6 @@ class Transaction
   attr_accessor :balance
 
   def initialize(credit=nil, debit=nil, balance = 0)
-    # @credit = (credit == nil ? credit : '%.2f' % credit)
     @credit = two_decimal_places(credit)
     @debit = two_decimal_places(debit)
     @date = Time.now.strftime("%d/%m/%Y")
