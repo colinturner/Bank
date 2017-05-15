@@ -10,6 +10,12 @@ describe Account do
 
   context "deposit funds" do
     it { is_expected.to respond_to :deposit }
+
+    it "should deposit a transaction" do
+      # transaction = double(:transaction)
+      subject.deposit(50)
+      expect(subject.transactions.length).to eq 1
+    end
   end
 
   context "withdraw funds" do

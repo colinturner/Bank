@@ -1,12 +1,16 @@
+require_relative 'transaction'
+
 class Account
 
-  attr_reader :transactions
+  attr_accessor :transactions
 
   def initialize
     @transactions = []
   end
 
-  def deposit
+  def deposit(amount)
+    transaction = Transaction.new
+    self.transactions << transaction
   end
 
   def withdraw
