@@ -11,6 +11,7 @@ class Statement
     account.transactions.each do |val|
       puts "#{val.date} || #{val.credit} || #{val.debit} || #{val.balance}"
     end
+    nil
   end
 
   nil
