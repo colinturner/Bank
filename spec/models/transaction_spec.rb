@@ -10,7 +10,6 @@ describe Transaction do
     end
 
     it "should have a date completed" do
-      # allow(transaction).to receive(:date) {"24/10/2012"}
       expect(transaction.date).to eq Time.now.strftime("%d/%m/%Y")
     end
   end

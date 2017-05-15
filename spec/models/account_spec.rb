@@ -18,6 +18,10 @@ describe Account do
   end
 
   context "withdraw funds" do
+    before(:each) do
+      allow(subject).to receive(:balance) {100}
+    end
+
     it { is_expected.to respond_to :withdraw }
 
     it "should create a transaction" do
@@ -25,9 +29,20 @@ describe Account do
       expect(subject.transactions.length).to eq 1
     end
 
-    it "should create a transaction with negative funds" do
+    it "can create a transaction with negative funds" do
       subject.withdraw(20)
       expect(subject.transactions.first.funds).to eq -20
+    end
+  end
+
+  context "balance" do
+    it "should update after each transaction" do
+      subject.deposit(50)
+      expect(subject.balance).to eq 50
+      subject.deposit(60)
+      expect(subject.balance).to eq 110
+      subject.withdraw(30)
+      expect(subject.balance).to eq 80
     end
   end
 
