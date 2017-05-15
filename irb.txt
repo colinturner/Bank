@@ -2,3 +2,6 @@ account = Account.new
 account.deposit(5)
 account.withdraw(2)
 account.deposit(10)
+
+
+'%.2f' % 500
