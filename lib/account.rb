@@ -13,7 +13,9 @@ class Account
     self.transactions << transaction
   end
 
-  def withdraw
+  def withdraw(amount)
+    transaction = Transaction.new
+    self.transactions << transaction
   end
 
 end
