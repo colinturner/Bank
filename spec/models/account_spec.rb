@@ -20,9 +20,14 @@ describe Account do
   context "withdraw funds" do
     it { is_expected.to respond_to :withdraw }
 
-    it "should withdraw a transaction" do
+    it "should create a transaction" do
       subject.withdraw(20)
       expect(subject.transactions.length).to eq 1
+    end
+
+    it "should create a transaction with negative funds" do
+      subject.withdraw(20)
+      expect(subject.transactions.first.funds).to eq -20
     end
   end
 
