@@ -9,13 +9,9 @@ class Statement
   def show
     puts "date || credit || debit || balance"
     account.transactions.each do |val|
-      if val.funds > 0
-        puts "#{val.date} || #{val.funds} || || #{val.balance}"
-      else
-        puts "#{val.date} || || #{val.funds} || #{val.balance}"
-      end
+      puts "#{val.date} || #{val.credit} || #{val.debit} || #{val.balance}"
     end
-    nil
   end
 
+  nil
 end
