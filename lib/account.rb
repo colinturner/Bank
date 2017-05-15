@@ -24,6 +24,10 @@ class Account
     add_to_account_history(transaction)
   end
 
+  def summary
+    Statement.new(self).show
+  end
+
   private
 
   def can_user_withdraw(amount)
