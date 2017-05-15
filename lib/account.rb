@@ -13,15 +13,13 @@ class Account
 
   def deposit(amount)
     increase_balance_by(amount)
-    transaction = Transaction.new(amount, balance)
-    add_to_account_history(transaction)
+    add_transaction_of(amount)
   end
 
   def withdraw(amount)
     can_user_withdraw(amount)
     decrease_balance_by(amount)
-    transaction = Transaction.new(-amount, balance)
-    add_to_account_history(transaction)
+    add_transaction_of(amount)
   end
 
   def summary
@@ -45,6 +43,11 @@ class Account
 
   def decrease_balance_by(amount)
     self.balance -= amount
+  end
+
+  def add_transaction_of(amount)
+    transaction = Transaction.new(amount, balance)
+    add_to_account_history(transaction)
   end
 
 end

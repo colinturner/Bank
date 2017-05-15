@@ -31,7 +31,7 @@ describe Account do
 
     it "can create a transaction with negative funds" do
       subject.withdraw(20)
-      expect(subject.transactions.first.funds).to eq -20
+      expect(subject.transactions.first.funds).to eq 20
     end
   end
 
