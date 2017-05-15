@@ -1,4 +1,4 @@
-require './lib/account'
 account = Account.new
-account.deposit(50)
-account.withdraw(20)
+account.deposit(5)
+account.withdraw(2)
+account.deposit(10)

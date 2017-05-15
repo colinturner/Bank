@@ -1,4 +1,5 @@
 require_relative 'transaction'
+require_relative 'statement'
 
 class Account
 
@@ -11,16 +12,16 @@ class Account
   end
 
   def deposit(amount)
-    increase_balance(amount)
+    increase_balance_by(amount)
     transaction = Transaction.new(amount, balance)
-    add_to_account(transaction)
+    add_to_account_history(transaction)
   end
 
   def withdraw(amount)
     can_user_withdraw(amount)
-    decrease_balance(amount)
+    decrease_balance_by(amount)
     transaction = Transaction.new(-amount, balance)
-    add_to_account(transaction)
+    add_to_account_history(transaction)
   end
 
   private
@@ -30,15 +31,15 @@ class Account
     fail "£#{balance} available in account. Please withdraw a lower amount." if self.balance < amount
   end
 
-  def add_to_account(transaction)
+  def add_to_account_history(transaction)
     self.transactions << transaction
   end
 
-  def increase_balance(amount)
+  def increase_balance_by(amount)
     self.balance += amount
   end
 
-  def decrease_balance(amount)
+  def decrease_balance_by(amount)
     self.balance -= amount
   end
 
